@@ -1,3 +1,13 @@
+#- hosts: all
+#  vars_prompt: 
+#  -  name: username
+#     prompt: " Enter your Name : "
+#     private: no
+#  tasks: 
+#  -  debug:
+#       msg: "hello {{username}}"
+
+
 - hosts: all
   vars_prompt: 
   -  name: foldername
@@ -34,6 +44,10 @@
   - copy:
       dest: "/etc/httpd/conf.d/configurefile.conf"
       src: "configurefile.conf"
+
+  -  file:
+       state: directory
+       path: "/var/www/manali"
 
   - copy:
       dest: "/var/www/manali/index.html"
